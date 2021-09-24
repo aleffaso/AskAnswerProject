@@ -3,10 +3,10 @@
 const Sequelize = require("sequelize");
 const connection = require("./database");
 
-const Question = connection.define('question',{ //Criar banco de dados com a tabela Question
+const Question = connection.define('question',{ //Create database with "question" name
     title:{
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false //Need to fill the field
     },
     description:{
         type: Sequelize.TEXT,
@@ -14,6 +14,6 @@ const Question = connection.define('question',{ //Criar banco de dados com a tab
     }
 });
 
-Question.sync({force:false}).then(() => {}); //força o banco de dados a criar a tabela Question caso não exista
+Question.sync({force:false}).then(() => {}); //In case of database "question" does not exist, it forces to create
 
 module.exports = Question;

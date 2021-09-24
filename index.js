@@ -1,5 +1,5 @@
-const express  = require("express");
-const app = express();
+const express  = require("express"); //Import framework 
+const app = express(); //Use framework
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
 const questionModule = require("./database/Question");
@@ -7,7 +7,7 @@ const Question = require("./database/Question");
 const { response } = require("express");
 const Answer = require("./database/Answer");
 
-//Conectar ao database
+//Connect to Database
 
 connection.authenticate()
 .then(()=>{
@@ -17,20 +17,20 @@ connection.authenticate()
     console.log(error);
 });
 
-app.set('view engine', 'ejs'); //Rodar o EJS para trazer o HTML
+app.set('view engine', 'ejs'); //Run EJS to render HTML
 app.use(express.static('public'));
 
-//Body parser
+//Body parser to use partials
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-//Rotas
+//Routes
 app.get("/", (req, res) => {
     questionModule.findAll({raw: true, order:[
-        ['id', 'DESC'] //Ordem descrescente
-    ]}).then(questionModule => {// Procurar todos os dados na tabela SELECT * FROM questions
+        ['id', 'DESC'] //Order inverted
+    ]}).then(questionModule => {// As well as SELCT * FROM questions 
         res.render("index",{
-            questionModule: questionModule
+            questionModule: questionModule //Show all question at the main page
         });
     });  
 });
@@ -39,52 +39,52 @@ app.get("/ask", (req,res) => {
     res.render("ask");
 });
 
-app.post("/savequestion", (req,res) => {
-    var title = req.body.title;
-    var description = req.body.description;
+app.post("/savequestion", (req,res) => { //Saving the questions asked
+    var title = req.body.title; //Associated to ask.js name "title"
+    var description = req.body.description; //Associated to ask.js name "description"
     questionModule.create({ //INSER INTO ..... + ..... SQL
-        title: title,
+        title: title, //Associated to database Question
         description: description
     }).then(() => {
-        res.redirect("/");
+        res.redirect("/"); //Redirect to index.ejs
     });
 
 });
 
-app.get("/question/:id",(req,res) => {
+app.get("/question/:id",(req,res) => { // Search for questions by id
     var id = req.params.id;
     questionModule.findOne({
-        where: {id: id} //Busca o id da tabela e compara com o id da requisição
+        where: {id: id} //Compare id from table and parameter
     }).then(questionModule => {
 
         if(questionModule){
-            Answer.findAll({
+            Answer.findAll({ //If find the questionModule id
                 where: {questionId: questionModule.id},
                 order: [['id', 'DESC' ]]
             }).then( answer => {
-                res.render("question", {
+                res.render("question", { //Then render the question itself with its answers
                     questionModule: questionModule,
                     answer: answer
                 });
             });
         }else{
-            res.redirect("/");
+            res.redirect("/"); //Redirect to index.ejs
         };
     });
 });
 
-app.post("/answer",(req,res)=>{
-    var body = req.body.bodyAnswer;
-    var questionId = req.body.questionId;
+app.post("/answer",(req,res)=>{ // To send an answer to the question
+    var body = req.body.bodyAnswer; //Related to question.ejs "bodyAnswer"
+    var questionId = req.body.questionId; //Related to question.ejs "questionId"
 
-    Answer.create({
-        body: body,
+    Answer.create({ //variables from database Answer
+        body: body, //Related to database Answer
         questionId: questionId
     }).then(() => {
-        res.redirect("/question/"+questionId);
+        res.redirect("/question/"+questionId); //Render the answer according to the questions
     });
 });
 
 app.listen(3000, () => {
-    console.log("Server Running");
+    console.log("Server Running"); //To make sure the app is running
 });
