@@ -6,9 +6,11 @@
 
 ## First step
 
-You need to install frameworks, libraries and database. Open your terminal and `run` these commands:
+You need to install frameworks, libraries and database. 
 
 - Download Node.js at `https://nodejs.org/en/download/`
+
+ Then, open your terminal and `run` the following commands:
 
 - Run: `npm install express --save` to install Express framework;
 
