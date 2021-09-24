@@ -66,7 +66,7 @@ You need to install frameworks, libraries and database:
 
 <p align="center">
   <img  src="src/6_instruction.png">
-</p> <br> <hr>
+</p> <br>
 
 - If you want to go back to the main page, you only have to click on the Node.js icon on the top of the page
 
