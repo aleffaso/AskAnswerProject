@@ -6,7 +6,7 @@
 
 ## First step
 
-You need to install frameworks, libraries and database:
+You need to install frameworks, libraries and database. Open your terminal and `run` these commands:
 
 - Run: `npm install express --save` to install Express framework;
 
@@ -21,7 +21,7 @@ You need to install frameworks, libraries and database:
 - As we use MySQL to build our data base, you can download it at this link if you don't have it already: 
 `https://dev.mysql.com/downloads/mysql/ `
 
-- After installing MySQL don't forget to change `YourPassword` with your own credentials at `database/database.js`  as the picture below <br><br>
+- After installing MySQL don't forget to change `YourPassword` with your `Root` credentials at `database/database.js`  as the picture below <br><br>
 
 <p align="center">
   <img  src="src/1_instruction.png">
