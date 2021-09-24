@@ -32,7 +32,7 @@ You need to install frameworks, libraries and database. Open your terminal and `
 
 - After that, run: `npm install mysql2 --save` to use MySQL API to have better performance
 
-- Finally, run: `export PATH=${PATH}:/usr/local/mysql/bin/` on `terminal` to make sure everything is fine.
+If you are a linux or macos user, you might have to set up the `PATH` from your MySQL folder. To make sure everything is fine, run: `export PATH=${PATH}:/usr/local/mysql/bin/` on `terminal` to make sure everything is fine.
 
 ## To run the application
 
