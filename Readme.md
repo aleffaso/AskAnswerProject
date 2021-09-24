@@ -8,6 +8,8 @@
 
 You need to install frameworks, libraries and database. Open your terminal and `run` these commands:
 
+- Download Node.js at `https://nodejs.org/en/download/`
+
 - Run: `npm install express --save` to install Express framework;
 
 - Run: `npm install ejs --save` to install EJS library to render front-end;
