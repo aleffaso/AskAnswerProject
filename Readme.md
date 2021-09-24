@@ -23,13 +23,16 @@ You need to install frameworks, libraries and database. Open your terminal and `
 
 - After installing MySQL don't forget to change `YourPassword` with your `Root` credentials at `database/database.js`  as the picture below <br><br>
 
+
 <p align="center">
   <img  src="src/1_instruction.png">
 </p> <br>
 
 - To make sure our database is working fine, you can download `WorkBench` from MySQL as well at this link: `https://www.mysql.com/products/workbench/`
 
-- Finally, run: `npm install mysql2 --save` to use MySQL API to have better performance
+- After that, run: `npm install mysql2 --save` to use MySQL API to have better performance
+
+- Finally, run: `export PATH=${PATH}:/usr/local/mysql/bin/` on `terminal` to make sure everything is fine.
 
 ## To run the application
 
