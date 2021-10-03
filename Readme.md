@@ -4,7 +4,7 @@
 - The main purpose of this project is to build an application that allow people to make questions and answer. The application provides knowledge about my studies on `Node.js`, `EJS` and `MySQL` 
 <hr>
 
-## First step
+## First step - Libraries and Frameworks
 
 You need to install frameworks, libraries and database. Open your terminal and `run` these commands:
 
@@ -16,12 +16,12 @@ You need to install frameworks, libraries and database. Open your terminal and `
 
 - Run: `npm install sequelize --save` to manipulate our database;
 
-## Second step
+## Second step - Setting up MySQL
 
 - As we use MySQL to build our data base, you can download it at this link if you don't have it already: 
 `https://dev.mysql.com/downloads/mysql/ `
 
-- After installing MySQL don't forget to change `YourPassword` with your `Root` credentials at `database/database.js`  as the picture below <br><br>
+- After installing MySQL don't forget to change `process.env.DATABASE_PASSWORD` with your `Root` credentials at `database/database.js`  as the picture below <br><br>
 
 
 <p align="center">

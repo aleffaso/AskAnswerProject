@@ -8,7 +8,6 @@ const { response } = require("express");
 const Answer = require("./database/Answer");
 
 //Connect to Database
-
 connection.authenticate()
 .then(()=>{
     console.log("Database connected")
